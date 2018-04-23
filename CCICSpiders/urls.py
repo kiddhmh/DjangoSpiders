@@ -15,10 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url
+from django.views.static import serve
 from CCICApp.weibo import downloadData
+from CCICApp.zhihu import run
+from CCICApp import index
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^index$', index.index),
     url(r'^weibo-search$', downloadData.search_weibo),
     url(r'^weibo$', downloadData.searchweibo),
+    url(r'^zhihu-search$', run.search_zhihu),
+    url(r'^zhihu$', run.searchzhihu),
+
+    url(r'^medias/(?P<path>.*)$', serve, {'document_root': '../DjangoSpiders/templates/images'}),
 ]
