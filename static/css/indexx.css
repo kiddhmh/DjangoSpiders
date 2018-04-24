@@ -1,0 +1,102 @@
+#pylogo {
+    text-align: center;
+    margin-top: 60px;
+}
+
+#submitForm {
+
+}
+
+#keywordSearch {
+    height: 43px;
+    margin: 0 auto;
+}
+
+#keywordInput {
+    height: 100%;
+    width: 45%;
+    position: relative;
+    left: 25%;
+    background-color: white;
+}
+
+#submitBtn{
+    color: white;
+    height: 100%;
+    background-color: #2aabd2;
+    float: right;
+    position: relative;
+    right: 23%;
+    top: -100%;
+}
+
+
+#selectMenu {
+    height: 100%;
+    margin-left: 20.7%;
+    margin-top: -4.6%;
+}
+
+#keywordSearch #selectMenu .dropdown-toggle {
+    height: 100%;
+}
+
+#nowSupport .navbar-text{
+    position: relative;
+    left: 20%;
+    top: 10px;
+    font-size: 15px;
+    text-align: left;
+}
+
+#SupportWebs {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    top: 100px;
+    line-height: 60px;
+}
+
+#SupportWebs .dock {
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    opacity: 0.8;
+    text-align: left;
+}
+
+#SupportWebs .dock ul {
+    display: inline-block;
+}
+
+
+#SupportWebs .dock ul li {
+    float: left;
+    list-style: none;
+    -webkit-transition: linear 0.3s;
+    -moz-transition: linear 0.3s;
+    -ms-transition: linear 0.3s;
+    -o-transition: linear 0.3s;
+    transition: linear 0.3s;
+}
+
+#SupportWebs .dock ul li:hover {
+    -webkit-transform-origin: bottom center;
+    -moz-transform-origin: bottom center;
+    -ms-transform-origin: bottom center;
+    -o-transform-origin: bottom center;
+    transform-origin:  bottom center;
+
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+#SupportWebs .dock img {
+    width: 120px;
+    margin: 0px 30px;
+}

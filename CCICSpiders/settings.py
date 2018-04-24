@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'CCICSpiders.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'zhihu_spider',
+        'NAME': 'weibo',
         'USER': 'root',
-        'PASSWORD': 'yinling2965',
+        'PASSWORD': 'dadi@1234',
         'HOST':'localhost',
         'PORT':'3306',
     }

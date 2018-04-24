@@ -1,0 +1,51 @@
+/* CSS base */
+html , body{-moz-user-select:none;/*火狐*/ -webkit-user-select:none;/*webkit浏览器*/ -ms-user-select:none;/*IE10*/ -khtml-user-select:none;/*早期浏览器*/ user-select:none;}
+html,body,h1,h2,h3,h4,h5,h6,hr,p,iframe,dl,dt,dd,ul,ol,li,pre,form,button,input,textarea,th,td,fieldset{margin:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,progress,video{display:inline-block;vertical-align:baseline}
+html{height: 100%; overflow: auto; font-family:'Microsoft Yahei'; font-size:14px; line-height:1.4;  -webkit-text-size-adjust:none;-ms-text-size-adjust:none;}
+body{background: #fff; min-width:1200px;}
+*{outline: none;}
+a,a:hover,a:focus{text-decoration:none;}
+input, select, textarea{resize:none; overflow:visible;}
+table{border-collapse:collapse;border-spacing:0}
+li,ol,ul{list-style:none;}
+i{font-style:normal;}
+b,strong{font-weight:700;}
+input[type="submit"], input[type="button"]{-webkit-appearance:none; cursor: pointer; text-decoration: none;}
+input[type="button"], input[type="submit"], img{border:0;}
+input[type="radio"], input[type="checkbox"]{line-height: normal; vertical-align: -2px;}
+input:focus{outline: none;}
+input{border-radius: 0px; border: 0; outline: none;}
+p{word-wrap: break-word;}
+.clearfix{clear:both;overflow:hidden}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both}
+
+
+option::-ms-expand{ display: none; }
+option{
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari 和 Chrome */
+    appearance:none;
+}
+/* --背景色字体颜色--*/
+option:hover{
+    color:#fff;
+    background-color:#1E90FF;
+}
+
+
+.wrapper{max-width:1200px; margin:0 auto;}
+
+.pylogo{margin-top:50px; text-align: center;}
+.s-form{width:640px; min-height:35px; margin:10px auto 0;}
+.selectMenu{margin-right:5px;}
+.keywordInput{width:450px; border-top-right-radius:0; border-bottom-right-radius: 0;}
+.submitBtn{border-top-left-radius: 0; border-bottom-left-radius: 0; border:1px solid #337ab7!important;}
+.support{margin-top:100px;}
+.support-text{text-align: center; font-size:16px;}
+.supportWebs{margin-top:20px;}
+.supportWebs ul{width:450px; margin:0 auto;}
+.supportWebs ul li{float:left;}
+.supportWebs ul li img{width:80px; margin-left:52px;}

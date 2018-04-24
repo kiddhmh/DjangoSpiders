@@ -23,6 +23,8 @@ from CCICApp import index
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index$', index.index),
+    url(r'^indexx$', index.indexx),
+    url(r'^index-search$', index.index_search),
     url(r'^weibo-search$', downloadData.search_weibo),
     url(r'^weibo$', downloadData.searchweibo),
     url(r'^zhihu-search$', run.search_zhihu),
