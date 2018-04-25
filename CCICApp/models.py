@@ -19,7 +19,7 @@ class vvebo(models.Model):
 
 
 # 知乎Model
-class Zhihu(models.Model):
+class zhihu(models.Model):
     keyword = models.TextField(max_length=100, default="")
     question_id = models.CharField(max_length=20, default="")
     question_name = models.TextField(max_length=100, default="")
