@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
-from CCICApp.models import vvebo, wechat
+from CCICApp.models import vvebo, wechat, zhihu
 from django.core import serializers
 import json
 
@@ -12,7 +12,12 @@ def searchResult(request):
     end = page * 10
 
 
-    resultList =  serializers.serialize("json", vvebo.objects.order_by('id')[first:end])
+    if selectWeb == "weibo":
+        resultList =  serializers.serialize("json", vvebo.objects.order_by('id')[first:end])
+    if selectWeb == "zhihu":
+            resultList =  serializers.serialize("json", zhihu.objects.order_by('id')[first:end])
+    if selectWeb == "wechat":
+        resultList =  serializers.serialize("json", wechat.objects.order_by('id')[first:end])
     print('请求的是第几页', page)
     print('关键字:' + keyword + '网址:' + selectWeb)
     print('返回结果是', resultList)

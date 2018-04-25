@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
-from CCICApp.models import vvebo, wechat, Zhihu
+from CCICApp.models import vvebo, wechat, zhihu
 
 def index(request):
     return render_to_response('index.html')
@@ -21,11 +21,11 @@ def index_search(request):
     resultNumbers = 0
 
     # 判断是哪个网址哪个关键词,数据库是否存在,不存在提示爬取
-    if selectWeb == '微博':
+    if selectWeb == 'weibo':
         resultNumbers = vvebo.objects.filter(keyword=keyword).count()
-    elif selectWeb == '知乎':
-        resultNumbers = Zhihu.objects.filter(keyword=keyword).count()
-    elif selectWeb == '微信':
+    elif selectWeb == 'zhihu':
+        resultNumbers = zhihu.objects.filter(keyword=keyword).count()
+    elif selectWeb == 'wechat':
         resultNumbers = wechat.objects.filter(keyword=keyword).count()
     else:
         print('不可能触发的', selectWeb)
