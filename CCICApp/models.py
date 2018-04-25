@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+# 微博Model
 class vvebo(models.Model):
     id = models.IntegerField(primary_key=True)
     keyword = models.TextField(max_length=1000, default="")
@@ -14,3 +14,27 @@ class vvebo(models.Model):
     dianzan = models.IntegerField(default=0)
     device = models.TextField(max_length=1000, default="")
     url = models.TextField(max_length=1000, default="")
+
+
+
+# 知乎Model
+
+
+
+
+
+
+
+#微信Model
+class wechat(models.Model):
+    id = models.IntegerField(primary_key=True)
+    keyword = models.TextField(max_length=1000, default="")
+    article_title = models.TextField(max_length=1000, default="")
+    article_url = models.TextField(max_length=1000, default="")
+    article_imgs = models.TextField(max_length=1000, default="")
+    comment = models.TextField(max_length=1000, default="")
+    time = models.TextField(max_length=1000, default="")
+    gzh_profile_url =  models.TextField(max_length=1000, default="")
+    gzh_headimage = models.TextField(max_length=1000, default="")
+    user_name = models.TextField(max_length=1000, default="")
+    gzh_isv = models.IntegerField(default=0)

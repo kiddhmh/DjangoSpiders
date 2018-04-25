@@ -80,7 +80,7 @@
                     type: 'get',
                     dataType: 'json',
                     url: '{% url 'searchResult' %}',
-                    data: {page: obj.curr},
+                    data: {keyword: '{{ keyword }}', selectWeb: '{{ selectWeb }}', page: obj.curr},
                     success: function (data) {
                         console.log(data);
                         if(data.statusCode == 1){

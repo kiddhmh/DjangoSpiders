@@ -1,17 +1,38 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
-from CCICApp.models import vvebo
+from CCICApp.models import vvebo, wechat
 
 def index(request):
     return render_to_response('index.html')
 
 
 def index_search(request):
-    print('点击了提交表单', request.GET)
+    # 获取用户提交信息,关键字为空提示用户
+    selectWeb = ''
+    keyword = ''
+    if 'selectWeb' in request.GET:
+        selectWeb = request.GET['selectWeb']
+    if 'keyword' in request.GET:
+        keyword = request.GET['keyword']
 
-    list = vvebo.objects.all()
+    print('选择的网页是', selectWeb)
+    print('搜索的关键词是', keyword)
     context = {}
-    context['resultNumbers'] = list.count()
+    resultNumbers = 0
+
+    # 判断是哪个网址哪个关键词,数据库是否存在,不存在提示爬取
+    if selectWeb == '微博':
+        resultNumbers = vvebo.objects.filter(keyword=keyword).count()
+    elif selectWeb == '知乎':
+        resultNumbers = vvebo.objects.filter(keyword=keyword).count()
+    elif selectWeb == '微信':
+        resultNumbers = wechat.objects.filter(keyword=keyword).count()
+    else:
+        print('不可能触发的', selectWeb)
+
+    context['resultNumbers'] = resultNumbers
+    context['selectWeb'] = selectWeb
+    context['keyword'] = keyword
 
     return render(request, 'searchResult.html', context)
 
