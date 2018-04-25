@@ -19,16 +19,18 @@ from django.views.static import serve
 from CCICApp.weibo import downloadData
 from CCICApp.zhihu import run
 from CCICApp import index
+from CCICApp import searchResult
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^index$', index.index),
-    url(r'^indexx$', index.indexx),
+    url(r'^index$', index.index, name='index'),
     url(r'^index-search$', index.index_search),
     url(r'^weibo-search$', downloadData.search_weibo),
     url(r'^weibo$', downloadData.searchweibo),
     url(r'^zhihu-search$', run.search_zhihu),
     url(r'^zhihu$', run.searchzhihu),
 
-    url(r'^medias/(?P<path>.*)$', serve, {'document_root': '../DjangoSpiders/templates/images'}),
+
+    #响应ajax请求
+    url(r'^index-search/nextPage$', searchResult.searchResult, name='searchResult'),
 ]
