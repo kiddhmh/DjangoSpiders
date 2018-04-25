@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, render
-from CCICApp.models import vvebo, wechat
+from CCICApp.models import vvebo, wechat, Zhihu
 
 def index(request):
     return render_to_response('index.html')
@@ -24,7 +24,7 @@ def index_search(request):
     if selectWeb == '微博':
         resultNumbers = vvebo.objects.filter(keyword=keyword).count()
     elif selectWeb == '知乎':
-        resultNumbers = vvebo.objects.filter(keyword=keyword).count()
+        resultNumbers = Zhihu.objects.filter(keyword=keyword).count()
     elif selectWeb == '微信':
         resultNumbers = wechat.objects.filter(keyword=keyword).count()
     else:
