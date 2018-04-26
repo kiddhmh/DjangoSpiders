@@ -33,7 +33,10 @@
     <div class="content-wrapper">
         <div class="wrap">
             <div class="nums">
-                <p>为您找到相关结果<span id="result_nums">{{ resultNumbers }}</span>条</p>
+                <p>
+                    当前关键字为: <span class="text-danger show_source_web">{{ keyword }}</span> ,
+                    来自 <span id="show_source_web" class="text-danger show_source_web"></span> 的相关结果: <span id="result_nums">{{ resultNumbers }}</span>条
+                </p>
             </div>
             <div class="result_list" id="result_list">
                 <div class="result_item">
@@ -57,7 +60,7 @@
 
     </div>
 </div>
-
+<input type="hidden" id="source_web" value="{{ selectWeb }}">
 
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="https://code.jquery.com/jquery.js"></script>
@@ -65,7 +68,17 @@
 <script src="../static/js/bootstrap.min.js"></script>
 <script src="{% static 'js/layui/layui.js' %}"></script>
 <script>
-	layui.use('laypage', function(){
+    var source_web = $("#source_web").val();
+    if(source_web == "weibo") {
+        $("#show_source_web").text("微博")
+    }else if (source_web == "zhihu") {
+        $("#show_source_web").text("知乎")
+    }else if (source_web == "wechat") {
+        $("#show_source_web").text("微信")
+    }else {
+        $("#show_source_web").text("未知")
+    }
+    layui.use('laypage', function(){
 		var laypage = layui.laypage;
 		//调用分页
 		laypage.render({
@@ -86,17 +99,36 @@
                         if(data.statusCode == 1){
                             var dataObj = JSON.parse(data.result);
                             console.log(dataObj);
+                            var html = "";
                             if(dataObj.length == 0){
+                                $("#result_page").hide();
+                                html += '<div class="content_none">' +
+                                    '<div class="nors">'+
+                                        '<p>很抱歉，没有找到与' +
+                                            '<span style="font-family:宋体">“</span>' +
+                                                '<em>{{ keyword }}</em>' +
+                                            '<span style="font-family:宋体">”</span>相关的信息。' +
+                                        '</p>' +
+                                        '<br>' +
+                                        '<div class="tip_head">温馨提示：</div>' +
+                                        '<ul>' +
+                                            '<li>请检查您的输入是否正确</li>' +
+                                        '</ul>' +
+                                    '</div>'+
+                                '</div>';
                                 console.log("无数据")
                             }else{
-                                var html = "";
                                 $.each(dataObj, function(i, item){
                                     html += '<div class="result_item">'+
-                                        '<p>'+ item.fields.comment +'</p>'+
+                                        '<a>'+ item.fields.comment +'</a>'+
+                                        '<p class="item-msg">' +
+                                            '<span class="name">'+ item.fields.user_name +'</span>' +
+                                            '<span class="date">'+ item.fields.time +'</span>'+
+                                        '</p>'+
                                     '</div>';
                                 });
-                                $("#result_list").html(html);
                             }
+                            $("#result_list").html(html);
 
                         }else{
                             //layer.msg("获取数据失败，请重试！", { time: 1500 });

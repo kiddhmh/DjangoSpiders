@@ -48,12 +48,12 @@ p{word-wrap: break-word;}
 .supportWebs ul{width:450px; margin:0 auto; text-align: center;}
 .supportWebs ul li{display:inline-block;}
 .supportWebs ul li a{display:block; width:112.5px; height:112.5px; background-repeat:no-repeat; background-size:450px 295px; background-image: url(../imgs/web.png); }
-.web-weibo{background-position:0 0;}
-.web-zhihu{background-position:-112.5px -147.5px;}
-.web-weixin{background-position:-112.5px 0;}
-
+.web-weibo{background-position:-225px 0;}
+.web-weixin{background-position:-100.5px 0;}
+.web-zhihu{background-position:-100.5px -147.5px;}
+.alert_noKeyword{position:absolute; top:-60px; left:0; right:0; margin:0 auto; transition: all 0.2s; -webkit-transition: all 0.2s;}
+.alert.show{top:10px;}
 /*爬虫结果页*/
-
 .header-wrapper{height:70px; border-bottom: 1px solid #ebebeb; position:fixed; top:0; left:0; right:0; background:#fff; /*box-shadow: 0 0 5px #888;*/}
 .goIndex{display:block; width:33.3%; float:left; color:#333; line-height:70px;}
 .goIndex i{font-size:26px; vertical-align: middle;}
@@ -61,11 +61,18 @@ p{word-wrap: break-word;}
 .center-logo{width:33.3%; position:absolute; top:0; left:0; right:0; margin:0 auto; text-align: center}
 .center-logo img{height:70px; }
 .content-wrapper{padding:90px 0 20px;}
+.show_source_web{font-size:16px;}
 .nums {font-size: 12px;color: #999;}
 .result_list{margin:20px 0;}
-.result_item{margin-bottom:30px; font-size:16px;}
-.result_item p{line-height:1.5; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
-
+.result_item{margin-bottom:14px; font-size:16px;}
+.result_item a{display:block; line-height:1.5; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-decoration: underline;}
+.item-msg{font-size:13px; color:#666;}
+.item-msg .name{margin-right:20px;}
+.content_none{padding:45px 0 12px;}
+.nors p { font-size: 18px;  font-family: microsoft yahei;  color: #000;}
+.nors p em { color: #c00; font-style:normal;}
+.nors .tip_head { color: #666;  font-size: 13px;  line-height: 28px;  }
+.nors li {  color: #333;  line-height: 28px;  font-size: 13px;  font-family: '宋体';  padding-left: 30px;  list-style-position: inside; list-style-type: disc;  }
 /*分页样式初始化*/
 .layui-box, .layui-box *{
     box-sizing: content-box;

@@ -13,11 +13,24 @@ def searchResult(request):
 
 
     if selectWeb == "weibo":
-        resultList =  serializers.serialize("json", vvebo.objects.order_by('id')[first:end])
+        if vvebo.objects.filter(keyword=keyword).count() == 0:
+            resultList = serializers.serialize("json", [])
+        else:
+            resultList =  serializers.serialize("json", vvebo.objects.order_by('id')[first:end])
+
     if selectWeb == "zhihu":
+        if zhihu.objects.filter(keyword=keyword).count() == 0:
+            resultList = serializers.serialize("json", [])
+        else:
             resultList =  serializers.serialize("json", zhihu.objects.order_by('id')[first:end])
+
     if selectWeb == "wechat":
-        resultList =  serializers.serialize("json", wechat.objects.order_by('id')[first:end])
+        if wechat.objects.filter(keyword=keyword).count() == 0:
+            resultList = serializers.serialize("json", [])
+        else:
+            resultList =  serializers.serialize("json", wechat.objects.order_by('id')[first:end])
+
+
     print('请求的是第几页', page)
     print('关键字:' + keyword + '网址:' + selectWeb)
     print('返回结果是', resultList)

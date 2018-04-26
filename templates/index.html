@@ -23,7 +23,7 @@
         <div class="pylogo">
             <img src="{% static 'imgs/dadi.jpg' %}">
         </div>
-        <form class="s-form" action="/index-search" method="get">
+        <form class="s-form" action="/index-search" method="get" onsubmit="return check_form()">
             <select id="selectMenu" name="selectWeb" class="selectMenu selectpicker form-control pull-left">
                  <option value="weibo">微博</option>
                  <option value="zhihu">知乎</option>
@@ -37,14 +37,16 @@
             <div class="supportWebs">
                 <ul class="clearfix">
                     <li><a class="web-weibo" href="https://weibo.com" target="_blank"></a></li>
-                    <li><a class="web-zhihu" href="http://weixin.sogou.com" target="_blank"></a></li>
                     <li><a class="web-weixin" href="https://www.zhihu.com" target="_blank"></a></li>
+                    <li><a class="web-zhihu" href="http://weixin.sogou.com" target="_blank"></a></li>
                 </ul>
             </div>
         </div>
     </div>
-
-
+    <div id="alert_noKeyword" class="alert_noKeyword alert alert-danger col-xs-6 col-xs-offset-3">
+        <a class="close" data-dismiss="alert">×</a>
+        <strong>Error!</strong>关键字不能为空!
+	</div>
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
 <script src="https://code.jquery.com/jquery.js"></script>
 <!-- 包括所有已编译的插件 -->
