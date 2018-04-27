@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详情</title>
+    <!-- 引入 Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+    <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<link >
+<body>
+    <div class="wrapper">
+        <div class="header-wrapper clearfix">
+            <div class="wrap">
+                <a href="{% url 'index' %}" class="goIndex">
+                    <i class="iconfont icon-arrow_left"></i>
+                    <span>首页</span>
+                </a>
+                <div class="center-logo">
+                    <img src="{% static 'imgs/dadi.jpg' %}">
+                </div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <div class="wrap">
+                <ul class="details">
+                    <li>
+                        <div class="d_title">user_id</div>
+                        <div class="d_content">的缴费开始代理费</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">详情</h4>
+                </div>
+                <div class="modal-body" style="min-height:300px;">在这里添加一些文本</div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- 包括所有已编译的插件 -->
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/layui/layui.js' %}"></script>
+    <script>
+        $(".details").on("click", ".d_content", function(){
+            var detailModal =  $("#detailModal")
+            var text = $(this).text();
+            detailModal.find(".modal-body").text(text);
+            detailModal.modal("show");
+        })
+    </script>
+
+</body>
+</html>

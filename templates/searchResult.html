@@ -120,7 +120,7 @@
                             }else{
                                 $.each(dataObj, function(i, item){
                                     html += '<div class="result_item">'+
-                                        '<a>'+ item.fields.comment +'</a>'+
+                                        '<a href="{% url 'details' %}?selectWeb={{ selectWeb }}&id=' + item.fields.comment + '" target="_blank">'+ item.fields.comment +'</a>'+
                                         '<p class="item-msg">' +
                                             '<span class="name">'+ item.fields.user_name +'</span>' +
                                             '<span class="date">'+ item.fields.time +'</span>'+

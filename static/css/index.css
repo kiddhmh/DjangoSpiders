@@ -73,6 +73,15 @@ p{word-wrap: break-word;}
 .nors p em { color: #c00; font-style:normal;}
 .nors .tip_head { color: #666;  font-size: 13px;  line-height: 28px;  }
 .nors li {  color: #333;  line-height: 28px;  font-size: 13px;  font-family: '宋体';  padding-left: 30px;  list-style-position: inside; list-style-type: disc;  }
+.details{width:100%; border:1px solid #ddd;}
+.details li{display:flex; display:-webkit-flex; border-bottom:1px solid #ddd;}
+.details li:last-child{border-bottom:0;}
+.d_title, .d_content{height:30px; line-height:30px; padding:0 5px;}
+.d_title{flex:0 0 200px; width:200px;border-right:1px solid #ddd;}
+.d_content{flex:1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+
+
 /*分页样式初始化*/
 .layui-box, .layui-box *{
     box-sizing: content-box;

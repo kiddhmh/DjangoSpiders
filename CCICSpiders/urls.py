@@ -20,6 +20,7 @@ from CCICApp.weibo import downloadData
 from CCICApp.zhihu import run
 from CCICApp import index
 from CCICApp import searchResult
+from CCICApp import details
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,4 +34,5 @@ urlpatterns = [
 
     #响应ajax请求
     url(r'^index-search/nextPage$', searchResult.searchResult, name='searchResult'),
+    url(r'^index-search/details$', details.detail, name='details'),
 ]
