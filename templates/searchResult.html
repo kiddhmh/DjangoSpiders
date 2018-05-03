@@ -52,6 +52,7 @@
 <!-- 包括所有已编译的插件 -->
 <script src="../static/js/bootstrap.min.js"></script>
 <script src="{% static 'js/layui/layui.js' %}"></script>
+<script src="{% static 'js/layer/layer.js' %}"></script>
 <script>
     var source_web = $("#source_web").val();
     if(source_web == "weibo") {
@@ -105,7 +106,7 @@
                             }else{
                                 $.each(dataObj, function(i, item){
                                     html += '<div class="result_item">'+
-                                        '<a href="{% url 'details' %}?selectWeb={{ selectWeb }}&id=' + item.fields.comment + '" target="_blank">'+ item.fields.comment +'</a>'+
+                                        '<a href="{% url 'indexSearch-details' %}?selectWeb={{ selectWeb }}&id=' + item.pk +'" target="_blank">'+ item.fields.comment +'</a>'+
                                         '<p class="item-msg">' +
                                             '<span class="name">'+ item.fields.user_name +'</span>' +
                                             '<span class="date">'+ item.fields.time +'</span>'+
@@ -116,11 +117,11 @@
                             $("#result_list").html(html);
 
                         }else{
-                            //layer.msg("获取数据失败，请重试！", { time: 1500 });
+                            layer.msg("获取数据失败，请重试！", { time: 1500 });
                         }
                     },
                     error: function (err) {
-                        //layer.msg('网络异常：' + JSON.stringify(err));
+                        layer.msg('网络异常：' + JSON.stringify(err));
                     }
                 });
 			}

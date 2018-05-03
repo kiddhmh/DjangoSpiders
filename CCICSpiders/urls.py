@@ -30,9 +30,10 @@ urlpatterns = [
     url(r'^weibo$', downloadData.searchweibo),
     url(r'^zhihu-search$', run.search_zhihu),
     url(r'^zhihu$', run.searchzhihu),
+    url(r'^index-search/details$', details.detail, name='indexSearch-details'),
 
 
     #响应ajax请求
     url(r'^index-search/nextPage$', searchResult.searchResult, name='searchResult'),
-    url(r'^index-search/details$', details.detail, name='details'),
+    url(r'^index-search/details/result$', details.ajxdetail, name='ajxdetail'),
 ]
