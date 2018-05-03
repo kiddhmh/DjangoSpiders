@@ -58,10 +58,46 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- 包括所有已编译的插件 -->
     <script src="../static/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/layui/layui.js' %}"></script>
+    <script src="{% static 'js/layer/layer.js' %}"></script>
     <script>
+        $(function(){
+            getData();
+        });
+        function getData(){
+            //获取修改信息
+            var href = window.location.search;
+            href = href.split("?")[1];
+            var selectWeb = href.split("&")[0].split("=")[1];
+            var id = href.split("&")[1].split("=")[1];
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '{% url 'ajxdetail' %}',
+                data: {selectWeb: selectWeb, id: id},
+                success: function (data) {
+                    if(data.statusCode == 1){
+                        var dataObj = JSON.parse(data.result);
+                        console.log(dataObj);
+                        var html = "";
+                        $.each(dataObj[0].fields, function(i, item){
+                            html += '<li>'+
+                                '<div class="d_title">'+ i +'</div>'+
+                                '<div class="d_content">'+ item +'</div>'+
+                            '</li>';
+                        });
+                        $(".details").html(html);
+                    }else{
+                        layer.msg("获取数据失败，请重试！", { time: 1500 });
+                    }
+                },
+                error: function (err) {
+                    layer.msg('网络异常：' + JSON.stringify(err));
+                }
+            });
+        }
+
         $(".details").on("click", ".d_content", function(){
-            var detailModal =  $("#detailModal")
+            var detailModal =  $("#detailModal");
             var text = $(this).text();
             detailModal.find(".modal-body").text(text);
             detailModal.modal("show");
