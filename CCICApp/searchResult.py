@@ -16,19 +16,19 @@ def searchResult(request):
         if vvebo.objects.filter(keyword=keyword).count() == 0:
             resultList = serializers.serialize("json", [])
         else:
-            resultList =  serializers.serialize("json", vvebo.objects.order_by('id')[first:end])
+            resultList =  serializers.serialize("json", vvebo.objects.filter(keyword=keyword).order_by('id')[first:end])
 
     if selectWeb == "zhihu":
         if zhihu.objects.filter(keyword=keyword).count() == 0:
             resultList = serializers.serialize("json", [])
         else:
-            resultList =  serializers.serialize("json", zhihu.objects.order_by('id')[first:end])
+            resultList =  serializers.serialize("json", zhihu.objects.filter(keyword=keyword).order_by('id')[first:end])
 
     if selectWeb == "wechat":
         if wechat.objects.filter(keyword=keyword).count() == 0:
             resultList = serializers.serialize("json", [])
         else:
-            resultList =  serializers.serialize("json", wechat.objects.order_by('id')[first:end])
+            resultList =  serializers.serialize("json", wechat.objects.filter(keyword=keyword).order_by('id')[first:end])
 
 
     print('请求的是第几页', page)
